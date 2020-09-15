@@ -1,3 +1,10 @@
+# --- constants ---
+scoreboard objectives add lp_c_cooldown dummy
+scoreboard objectives add lp_c_charge dummy
+
+scoreboard players set #lodeport lp_c_cooldown 50
+scoreboard players set #lodeport lp_c_charge 10
+
 # --- objectives ---
 scoreboard objectives add lp_cooldown dummy
 scoreboard objectives add lp_ok dummy
