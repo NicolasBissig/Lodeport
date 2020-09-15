@@ -1,0 +1,10 @@
+[
+  {
+    "condition": "minecraft:reference",
+    "name": "lodeport:sneaking"
+  },
+  {
+    "condition": "minecraft:reference",
+    "name": "lodeport:lodecompass"
+  }
+]
