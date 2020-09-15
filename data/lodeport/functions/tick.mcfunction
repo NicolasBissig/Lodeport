@@ -1,14 +1,31 @@
+# set cooldown for new players
+execute as @a unless score @s lp_cooldown matches -1.. run scoreboard players set @s lp_cooldown 10
+
+# clear old used portals
 function lodeport:clear_portals
-execute as @a at @a if score @s lp_after matches 1.. run function lodeport:after_port
 
-execute as @a unless predicate lodeport:validport if score @s lp_cooldown matches ..10 run scoreboard players set @s lp_cooldown 10
+# notify players
+execute as @a[scores={lp_notify=1..,lp_cooldown=..10}] run function lodeport:tpready
 
-execute as @a if score @s lp_cooldown matches 11.. run scoreboard players remove @s lp_cooldown 1
-execute as @a if predicate lodeport:validport if score @s lp_cooldown matches ..10 run scoreboard players remove @s lp_cooldown 1
+# execute effects for after teleport
+execute as @a[scores={lp_after=1..}] run function lodeport:after_port
 
-execute as @a at @a if predicate lodeport:validport if score @s lp_cooldown matches ..10 run particle poof ~ ~0.1 ~ 0.5 1 0.5 0 150 force
+# reset cooldown for players that are not crouching/holding a lodestone compass
+execute as @a[scores={lp_cooldown=..10}] unless predicate lodeport:validport run scoreboard players set @s lp_cooldown 10
 
-execute as @a at @a if score @s lp_cooldown matches ..0 run function lodeport:store_coords
-execute as @a at @a if score @s lp_cooldown matches ..0 if score @s lp_ok matches 1.. run function lodeport:portal
+# if the cooldown is higher than charge time decrease by one
+execute as @a[scores={lp_cooldown=11..}] run scoreboard players remove @s lp_cooldown 1
 
-execute as @a at @a if score @s lp_cooldown matches ..0 if score @s lp_ok matches 1.. run scoreboard players set @s lp_cooldown 50
+# if cooldown is in charge range and player is valid for teleport decrease cooldown by one
+execute as @a[scores={lp_cooldown=..10}] if predicate lodeport:validport run scoreboard players remove @s lp_cooldown 1
+
+# spawn particles for charging players
+execute as @a[scores={lp_cooldown=..10}] at @a if predicate lodeport:validport run particle poof ~ ~0.1 ~ 0.5 1 0.5 0 150 force
+
+# Store coordinates for teleporting players
+execute as @a[scores={lp_cooldown=..0}] run function lodeport:store_coords
+# spawn the gateway portal
+execute as @a[scores={lp_cooldown=..0,lp_ok=1..}] run function lodeport:portal
+
+# set the cooldown to the long cooldown for players that teleported
+execute as @a[scores={lp_cooldown=..0,lp_ok=1..}] run scoreboard players set @s lp_cooldown 50
