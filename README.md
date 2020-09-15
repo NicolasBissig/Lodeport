@@ -5,7 +5,7 @@ Minecraft datapack for teleportation with lodestone compasses.
 
  1. Go to the [releases](https://github.com/NicolasBissig/Lodeport/releases) and download the newest `Lodeport.zip` file.
  2. Copy this .zip file into your worlds datapacks folder.
- 3. To activate the pack you need to restart your world/server or enter `/reload` in the console.
+ 3. If you have problems after installing restart your world/server or enter `/reload` in the console.
 
 ## How to use
 [Video Tutorial](https://www.youtube.com/watch?v=QuBy0nzaQKM)
