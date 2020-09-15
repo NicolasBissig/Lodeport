@@ -25,7 +25,7 @@ execute as @a if score @s lp_cooldown <= #lodeport lp_c_charge at @s if predicat
 # Store coordinates for teleporting players
 execute as @a[scores={lp_cooldown=..0}] run function lodeport:store_coords
 # spawn the gateway portal
-execute as @a[scores={lp_cooldown=..0,lp_ok=1..}] run function lodeport:portal
+execute as @a[scores={lp_cooldown=..0,lp_ok=1..},predicate=lodeport:in_air] run function lodeport:portal
 
 # set the cooldown to the long cooldown for players that teleported
 execute as @a[scores={lp_cooldown=..0,lp_ok=1..}] run scoreboard players operation @s lp_cooldown = #lodeport lp_c_cooldown
