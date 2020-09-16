@@ -20,12 +20,9 @@ execute as @a if score @s lp_cooldown > #lodeport lp_c_charge run scoreboard pla
 execute as @a if score @s lp_cooldown <= #lodeport lp_c_charge if predicate lodeport:validport run scoreboard players remove @s lp_cooldown 1
 
 # spawn particles for charging players
-execute as @a if score @s lp_cooldown <= #lodeport lp_c_charge at @s if predicate lodeport:validport run particle poof ~ ~0.1 ~ 0.5 1 0.5 0 150 force
+execute as @a if score @s lp_cooldown <= #lodeport lp_c_charge at @s if predicate lodeport:validport run particle poof ~ ~0.1 ~ 0.5 1 0.5 0 150
 
 # Store coordinates for teleporting players
 execute as @a[scores={lp_cooldown=..0}] run function lodeport:store_coords
 # spawn the gateway portal
-execute as @a[scores={lp_cooldown=..0,lp_ok=1..},predicate=lodeport:in_air] run function lodeport:portal
-
-# set the cooldown to the long cooldown for players that teleported
-execute as @a[scores={lp_cooldown=..0,lp_ok=1..}] run scoreboard players operation @s lp_cooldown = #lodeport lp_c_cooldown
+execute as @a[scores={lp_cooldown=..0,lp_ok=1..}] at @s if block ~ ~1 ~ #lodeport:airs run function lodeport:portal
