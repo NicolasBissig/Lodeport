@@ -9,7 +9,7 @@ Minecraft 1.16 datapack for teleportation with lodestone compasses.
 
 ## How to use
 
-[![Video Tutorial](http://img.youtube.com/vi/QuBy0nzaQKM/0.jpg)](http://www.youtube.com/watch?v=QuBy0nzaQKM)
+[Video Tutorial](http://www.youtube.com/watch?v=QuBy0nzaQKM)
 
  1. Use a normal compass on a lodestone block to get a lodestone compass linked to that lodestone.
  2. Hold the lodestone compass in your mainhaind and crouch.
