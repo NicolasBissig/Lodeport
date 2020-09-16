@@ -1,7 +1,7 @@
 # Lodeport
 Minecraft 1.16 datapack for teleportation with lodestone compasses.
 
-[![Example](https://gfycat.com/delectablelimpingakitainu)]
+[![Example](https://gfycat.com/delectablelimpingakitainu.gif)]
 
 ## How to install
 
