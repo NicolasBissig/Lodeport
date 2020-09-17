@@ -16,4 +16,10 @@ Minecraft 1.16 datapack for teleportation with lodestone compasses.
  3. Particles should appear and after a short charge up you will be teleported ontop the linked lodestone block.
  4. After a teleport there is a longer cooldown until you can teleport again.
 
-Admins can use the command `/function lodeport:help` and click on the text in the chat to change settings like teleportation charge up and cooldown.
+Admins can use the command `/function lodeport:info/help` and click on the text in the chat to change settings like teleportation charge up and cooldown.
+
+Or use these commands:
+
+`/scoreboard players set #lodeport lp_c_charge` - Changes the time it takes to channel a teleport.
+
+`/scoreboard players set #lodeport lp_c_cooldown` - Changes the time it takes until you can teleport again.
