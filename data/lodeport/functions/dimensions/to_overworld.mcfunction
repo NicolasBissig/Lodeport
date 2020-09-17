@@ -1,0 +1,1 @@
+execute in minecraft:overworld run teleport @s 0 300 0

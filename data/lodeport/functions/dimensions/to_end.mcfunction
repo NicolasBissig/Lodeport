@@ -1,0 +1,1 @@
+execute in minecraft:the_end run teleport @s 0 300 0
