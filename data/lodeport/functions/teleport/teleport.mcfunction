@@ -5,3 +5,4 @@ execute store result entity @s Pos[2] double 1 run scoreboard players get #curre
 
 # teleport the player to the marker, marker will die
 execute at @s run tp @a[tag=lodeport_source,limit=1] ~0.5 ~ ~0.5
+kill @s

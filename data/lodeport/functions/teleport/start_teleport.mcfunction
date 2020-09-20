@@ -6,8 +6,11 @@ scoreboard players operation #current lp_Z = @s lp_Z
 # mark this player to be the teleport target
 tag @s add lodeport_source
 
-# create the marker and teleport to it
-function lodeport:teleport/summon_marker
+# Summon the teleport target
+summon area_effect_cloud ~ ~ ~ {Tags:["lodeporter"]}
+
+# Move the teleport target and teleport the player to it
+execute as @e[type=area_effect_cloud,tag=lodeporter,limit=1] at @s run function lodeport:teleport/teleport
 
 # teleporting done, unmark
 tag @s remove lodeport_source
